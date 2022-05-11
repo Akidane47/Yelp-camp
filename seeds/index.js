@@ -3,9 +3,10 @@ const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 const Campground = require('../models/campground');
 const { descriptionTests } = require('./descriptionSeeds');   
-require('dotenv').config();
 
-
+if(process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
 const dbUrl = process.env.DB_URL;
 
 mongoose.connect(dbUrl);

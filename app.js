@@ -1,7 +1,6 @@
 if(process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
-// mongodb+srv://aklilekidane:<password>@cluster0.ppop5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 
 const express = require('express');
@@ -28,7 +27,6 @@ const MongoStore = require('connect-mongo');
 
 
 const dbUrl = process.env.DB_URL;
-// || // ('mongodb://127.0.0.1:27017/yelp-camp');
 
 
 
