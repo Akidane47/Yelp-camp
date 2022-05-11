@@ -5,6 +5,9 @@ const Campground = require('../models/campground');
 const { descriptionTests } = require('./descriptionSeeds');   
 require('dotenv').config();
 
+
+const dbUrl = process.env.DB_URL;
+
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
