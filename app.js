@@ -27,7 +27,7 @@ const MongoStore = require('connect-mongo');
 /////server works only when I hardcode server name in file, not in config variables or .env file
 // const dbUrl =process.env.MONGODB_URI;
 
-const dbUrl ="mongodb+srv://aklilekidane:Ak8000646672@cluster0.ppop5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const dbUrl =MONGODB_URI;
 
 
 
