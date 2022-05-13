@@ -31,8 +31,6 @@ const MongoStore = require('connect-mongo');
 const dbUrl =process.env.MONGODB_URL;
 
 
-
-
 mongoose.connect(dbUrl);
 
 const db = mongoose.connection;
