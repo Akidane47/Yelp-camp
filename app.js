@@ -25,7 +25,7 @@ const { options } = require('joi');
 const MongoStore = require('connect-mongo');
 
 
-const dbUrl ="mongodb+srv://aklilekidane:Ak8000646672@cluster0.ppop5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const dbUrl =process.env.MONGODB_URI;
 
 
 
