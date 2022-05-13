@@ -23,7 +23,9 @@ const { options } = require('joi');
 const MongoStore = require('connect-mongo');
 
 
-const dbUrl =process.env.MONGODB_URI;
+/////this is current problem line
+/////server works only when I hardcode server name in file, not in config variables or .env file
+const dbUrl =process.env.MONGODB_URI ||'mongodb://localhost:27017/yelp-camp' ;
 
 
 
