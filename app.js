@@ -22,10 +22,10 @@ const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const { options } = require('joi');
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo').default;
 
 
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.MONGODB_URI;
 
 
 
@@ -55,8 +55,8 @@ const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 
 
 
-const store = new MongoStore({
-    mongoUrl: dbUrl,
+const store = MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
     secret,
     touchAfter: 24 * 60 * 60
 })

@@ -7,7 +7,7 @@ const { descriptionTests } = require('./descriptionSeeds');
 if(process.env.NODE_ENV !== "production") {
   require('dotenv').config();
 }
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.MONGODB_URI;
 
 mongoose.connect(dbUrl);
 
