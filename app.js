@@ -61,25 +61,6 @@ const store = MongoStore.create({
     touchAfter: 24 * 60 * 60
 })
 
-// store.on("error", function (e) {
-//     console.log("SESSION store error", e)
-// })
-
-// const sessionConfig = {
-//     store,
-//     name: 'session',
-//     secret,
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: {
-//         httpOnly: true,
-//         // secure: true,
-//         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-//         maxAge: 1000 * 60 * 60 * 24 * 7
-//     }
-// }
-//date.now is set in milliseconds, multiplication solves how many 
-//milliseconds in a week
 
 app.use(session({
     secret,
