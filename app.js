@@ -27,7 +27,7 @@ const MongoStore = require('connect-mongo');
 /////this is current problem line
 /////server works only when I hardcode server name in file, not in config variables or .env file
 
-const dbUrl = '"'+process.env.MONGODB_URL+'"';
+const dbUrl = process.env.MONGODB_URL;
 
 // const dbUrl = "mongodb+srv://aklilekidane:Ak8000646672@cluster0.ppop5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
@@ -58,11 +58,11 @@ const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 
 
 
-// const store = MongoStore.create({
-//     mongoUrl: process.env.MONGODB_URI,
-//     secret,
-//     touchAfter: 24 * 60 * 60
-// })
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    secret,
+    touchAfter: 24 * 60 * 60
+})
 
 // store.on("error", function (e) {
 //     console.log("SESSION store error", e)
