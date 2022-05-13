@@ -55,33 +55,38 @@ const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 
 
 
-const store = MongoStore.create({
-    mongoUrl: process.env.MONGODB_URI,
-    secret,
-    touchAfter: 24 * 60 * 60
-})
+// const store = MongoStore.create({
+//     mongoUrl: process.env.MONGODB_URI,
+//     secret,
+//     touchAfter: 24 * 60 * 60
+// })
 
-store.on("error", function (e) {
-    console.log("SESSION store error", e)
-})
+// store.on("error", function (e) {
+//     console.log("SESSION store error", e)
+// })
 
-const sessionConfig = {
-    store,
-    name: 'session',
-    secret,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        httpOnly: true,
-        // secure: true,
-        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-        maxAge: 1000 * 60 * 60 * 24 * 7
-    }
-}
+// const sessionConfig = {
+//     store,
+//     name: 'session',
+//     secret,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//         httpOnly: true,
+//         // secure: true,
+//         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+//         maxAge: 1000 * 60 * 60 * 24 * 7
+//     }
+// }
 //date.now is set in milliseconds, multiplication solves how many 
 //milliseconds in a week
 
-app.use(session(sessionConfig));
+app.use(session({
+    store: MongoStore.create({ 
+        mongoUrl: dbUrl,
+        ttl: 14 * 24 * 60 * 60
+    })
+}));
 app.use(flash());
 
 app.use(passport.initialize());
