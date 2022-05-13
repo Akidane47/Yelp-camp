@@ -1,8 +1,8 @@
-require('dotenv').config();
 
 
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
 const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
@@ -27,7 +27,7 @@ const MongoStore = require('connect-mongo');
 /////server works only when I hardcode server name in file, not in config variables or .env file
 // const dbUrl =process.env.MONGODB_URI;
 
-const dbUrl =MONGODB_URI;
+const dbUrl = MONGODB_URI;
 
 
 
