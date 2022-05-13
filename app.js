@@ -26,9 +26,10 @@ const MongoStore = require('connect-mongo');
 
 /////this is current problem line
 /////server works only when I hardcode server name in file, not in config variables or .env file
-// const dbUrl =process.env.MONGODB_URL;
 
-const dbUrl = "mongodb+srv://aklilekidane:Ak8000646672@cluster0.ppop5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const dbUrl = process.env.MONGODB_URL;
+
+// const dbUrl = "mongodb+srv://aklilekidane:Ak8000646672@cluster0.ppop5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 
 mongoose.connect(dbUrl);
