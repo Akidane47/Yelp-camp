@@ -67,7 +67,7 @@ const sessionConfig = {
   name: "session",
   secret,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
     httpOnly: true,
     // secure: true,
@@ -81,14 +81,14 @@ const sessionConfig = {
 app.use(
   session({
     secret,
-    name: "newSession",
+    name: "session",
     store: MongoStore.create({
       mongoUrl: dbUrl,
       ttl: 14 * 24 * 60 * 60,
     }),
     proxy: true,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
   })
 );
 app.use(flash());
